@@ -62,23 +62,23 @@ class Stack:
     """
     def resize(self):
         ##### IMPLEMENT! #####
-        newSize = len(self.stack) * 2 if len(self.stack) != 0 else 0
+        newSize = len(self.stack) * 2 if len(self.stack) != 0 else 1
         tmpStack = [None for x in range(0, newSize) ]
-        tmpStack = [element for element in self.stack]
+        for elem in self.stack:
+            tmpStack
         self.stack = tmpStack
-        self.numElems = newSize
 
     """
     push function to push a value onto the stack.
     """
     def push(self, val):
         ##### IMPLEMENT! #####
-        if (self.isFull):
-            resize(self)
+        if (self.isFull()):
+            self.resize()
             pass
 
-        top += 1
-        self.stack[top] = val
+        self.top += 1
+        self.stack[self.top] = val
         self.numElems += 1
         pass
             
@@ -88,9 +88,9 @@ class Stack:
     """
     def pop(self):
         ##### IMPLEMENT! #####
-        if (self.isEmpty()):
+        if (self.isEmpty() == True):
             return None
-        ret = self.stack[top]
+        ret = self.stack[self.top]
         self.top -= 1
         self.numElems -= 1
         return ret

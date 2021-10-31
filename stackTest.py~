@@ -1,7 +1,0 @@
-import p2stack
-
-st = Stack()
-
-# test push / pop
-# test resize
-# test isFull/isEmpty

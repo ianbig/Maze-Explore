@@ -5,9 +5,9 @@ Fall 2021
 
 p2queue.py
 
-Partner 1:
-Partner 2:
-Date:
+Partner 1: Ian Liu (cl583)
+Partner 2: Leo Han (nh185)
+Date: 10/31/2021
 """
 
 """

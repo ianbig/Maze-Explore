@@ -4,6 +4,9 @@ Project 2
 Fall 2021
 
 p2wilson.py
+Partner 1: Ian Liu (cl583)
+Partner 2: Leo Han (nh185)
+Date: 10/31/2021
 """
 
 # Import random.

@@ -5,9 +5,9 @@ Fall 2021
 
 project2.py
 
-Partner 1:
-Partner 2:
-Date:
+Partner 1: Ian Liu (cl583)
+Partner 2: Leo Han (nh185)
+Date: 10/31/2021
 """
 
 # Import math and other p2 files.
@@ -23,7 +23,14 @@ alg:  A string that is either 'BFS' or 'DFS'.
 
 OUTPUTS
 path: The path from maze.start to maze.exit.
+
 """
+def init(maze):
+    for vertex in maze.adjList:
+        vertex.dist = math.inf  # Infinite dist initially.
+        vertex.visited = False  # Nothing visited at initialization.
+        vertex.prev = None  # No previous node on path yet.
+    return
 def bdfs(maze, alg):
     # If the alg is not BFS or DFS, raise exception.
     if (alg != 'BFS') and (alg != 'DFS'):
@@ -32,6 +39,7 @@ def bdfs(maze, alg):
     ##### Your implementation goes here. #####
 
     if (alg == 'DFS'):
+        init(maze)
         st = Stack()
         maze.start.visited = True
         st.push(maze.start)
@@ -46,12 +54,14 @@ def bdfs(maze, alg):
         while trace != None:
             ans.insert(0,trace.rank)
             trace = trace.prev
-        print(ans)
+       # print(ans)
+
 
     ##### Your implementation goes here. #####
     if (alg == 'BFS'):
         distance = 0
         st = Queue()
+        init(maze)
         maze.start.visited = True
         maze.start.dist = distance
         st.push(maze.start)
@@ -68,7 +78,7 @@ def bdfs(maze, alg):
         while trace != None:
             ans.insert(0, trace.rank)
             trace = trace.prev
-        print(ans)
+        #print(ans)
     return ans
 """
 Main function.

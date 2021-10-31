@@ -4,6 +4,9 @@ Project 2
 Fall 2021
 
 p2Maze.py
+Partner 1: Ian Liu (cl583)
+Partner 2: Leo Han (nh185)
+Date: 10/31/2021
 """
 
 # Import math, other p2 files, plotting, and Wilson's.

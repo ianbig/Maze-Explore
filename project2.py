@@ -28,11 +28,46 @@ def bdfs(maze, alg):
     # If the alg is not BFS or DFS, raise exception.
     if (alg != 'BFS') and (alg != 'DFS'):
         raise Exception('Incorrect alg! Need BFS or DFS!')
-
+    ans = []
     ##### Your implementation goes here. #####
-    return []
+    if (alg == 'DFS'):
+        st = Stack()
+        maze.start.visited = True
+        st.push(maze.start)
+        while (st.isEmpty() != True):
+            curr = st.pop()
+            for neighbor in curr.neigh:
+                if neighbor.visited != True:
+                    neighbor.visited = True
+                    st.push(neighbor)
+                    neighbor.prev = curr
+        trace = maze.exit
+        while trace != None:
+            ans.insert(0,trace.rank)
+            trace = trace.prev
+        #print(ans)
     ##### Your implementation goes here. #####
-
+    if (alg == 'BFS'):
+        distance = 0
+        st = Queue()
+        maze.start.visited = True
+        maze.start.dist = distance
+        st.push(maze.start)
+        while (st.isEmpty() != True):
+            distance += 1
+            curr = st.pop()
+            for neighbor in curr.neigh:
+                if neighbor.visited != True:
+                    neighbor.visited = True
+                    neighbor.dist = distance
+                    st.push(neighbor)
+                    neighbor.prev = curr
+        trace = maze.exit
+        while trace != None:
+            ans.insert(0, trace.rank)
+            trace = trace.prev
+        #print(ans)
+    return ans
 """
 Main function.
 """

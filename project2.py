@@ -30,6 +30,7 @@ def bdfs(maze, alg):
         raise Exception('Incorrect alg! Need BFS or DFS!')
     ans = []
     ##### Your implementation goes here. #####
+
     if (alg == 'DFS'):
         st = Stack()
         maze.start.visited = True
@@ -45,7 +46,8 @@ def bdfs(maze, alg):
         while trace != None:
             ans.insert(0,trace.rank)
             trace = trace.prev
-        #print(ans)
+        print(ans)
+
     ##### Your implementation goes here. #####
     if (alg == 'BFS'):
         distance = 0
@@ -66,10 +68,10 @@ def bdfs(maze, alg):
         while trace != None:
             ans.insert(0, trace.rank)
             trace = trace.prev
-        #print(ans)
+        print(ans)
     return ans
 """
 Main function.
 """
 if __name__ == "__main__":
-    testMazes(False)
+    testMazes(True)

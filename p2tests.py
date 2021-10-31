@@ -19,29 +19,39 @@ def testMazes(verbosity=False):
     m = Maze(0,verbosity)
     print('Testing Maze 0, DFS')
     m.solve('DFS',verbosity,False)
+    m = Maze(0, verbosity)
     print('Testing Maze 0, BFS')
     m.solve('BFS',verbosity,False)
+
     m = Maze(1,verbosity)
     print('Testing Maze 1, DFS')
     m.solve('DFS',verbosity,False)
+    m = Maze(1, verbosity)
     print('Testing Maze 1, BFS')
     m.solve('BFS',verbosity,False)
+
     m = Maze(2,verbosity)
     print('Testing Maze 2, DFS')
     m.solve('DFS',verbosity,False)
+    m = Maze(2, verbosity)
     print('Testing Maze 2, BFS')
     m.solve('BFS',verbosity,False)
+
     m = Maze(3,verbosity)
     print('Testing Maze 3, DFS')
     m.solve('DFS',verbosity,False)
+    m = Maze(3, verbosity)
     print('Testing Maze 3, BFS')
     m.solve('BFS',verbosity,False)
+
     m = Maze(4,verbosity)
     print('Testing Maze 4, DFS')
     m.solve('DFS',verbosity,False)
+    m = Maze(4, verbosity)
     print('Testing Maze 4, BFS')
     m.solve('BFS',verbosity,False)
     plt.show()
+
     return
 
 ################################################################################

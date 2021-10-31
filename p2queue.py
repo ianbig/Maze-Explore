@@ -31,7 +31,7 @@ class Queue:
     def __init__(self, size=3):
         self.queue = [None for x in range(0,size)]
         self.front = 0
-        self.rear = 0
+        self.rear = -1
         self.numElems = 0
         return
 
@@ -49,15 +49,15 @@ class Queue:
     isFull function to check if the queue is full.
     """
     def isFull(self):
-        ##### IMPLEMENT! #####
-        return
+        ##### IMPLEMENT! ####
+        return self.numElems == len(self.queue)
 
     """
     isEmpty function to check if the queue is empty.
     """
     def isEmpty(self):
         ##### IMPLEMENT! #####
-        return
+        return (self.numElems == 0)
 
     """
     resize function to resize the queue by doubling its size.
@@ -65,18 +65,46 @@ class Queue:
     """
     def resize(self):
         ##### IMPLEMENT! #####
-        return
+        newSize = (2 * len(self.queue)) if (len(self.queue) != 0) else 1
+        tmpQueue = [None for i in range(0, newSize)]
+        tmpIndex = 0
+        for i in range(self.front, len(self.queue)):
+            tmpQueue[tmpIndex] = self.queue[i]
+            tmpIndex += 1
+            pass
+
+        for i in range(0, self.rear + 1):
+            tmpQueue[tmpIndex] = self.queue[i]
+            tmpIndex += 1
+            pass
+
+        self.front = 0
+        self.rear = self.numElems - 1 if (len(self.queue) != 0) else 0
+        self.queue = tmpQueue
+                                          
 
     """
     push function to push a value into the rear of the queue.
     """
     def push(self, val):
         ##### IMPLEMENT! #####
-        return
+        if (self.isFull() == True):
+            self.resize()
+            pass
+        
+        self.rear = (self.rear + 1) % len(self.queue)
+        self.queue[self.rear] = val
+        self.numElems += 1
 
     """
     pop function to pop the value from the front of the queue.
     """
     def pop(self):
         ##### IMPLEMENT! #####
-        return None
+        if (self.isEmpty() == True):
+            return None
+        
+        ret = self.queue[self.front]
+        self.front = (self.front + 1) % len(self.queue)
+        self.numElems -= 1
+        return ret

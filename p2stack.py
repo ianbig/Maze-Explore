@@ -64,9 +64,12 @@ class Stack:
         ##### IMPLEMENT! #####
         newSize = len(self.stack) * 2 if len(self.stack) != 0 else 1
         tmpStack = [None for x in range(0, newSize) ]
+        tmpIndex = -1
         for elem in self.stack:
-            tmpStack
+            tmpIndex += 1
+            tmpStack[tmpIndex] = elem
         self.stack = tmpStack
+        self.top = tmpIndex
 
     """
     push function to push a value onto the stack.
@@ -74,6 +77,7 @@ class Stack:
     def push(self, val):
         ##### IMPLEMENT! #####
         if (self.isFull()):
+            # import pdb; pdb.set_trace()
             self.resize()
             pass
 
